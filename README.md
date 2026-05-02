@@ -1,6 +1,6 @@
-# 🤖 ALYA - AI Assistant [UNDER CONSTRUCTION]
+# 🤖 ALYA - AI Assistant
 
-A sleek and modern AI assistant chat interface with an elegant user interface and smooth animations. ALYA provides an immersive experience with a beautiful glass-morphism design and animated video background.
+A sleek and modern AI assistant chat interface powered by Claude AI with an elegant user interface and smooth animations. ALYA provides an immersive experience with a beautiful glass-morphism design, animated video background, and real-time AI responses.
 
 ---
 
@@ -13,13 +13,18 @@ A sleek and modern AI assistant chat interface with an elegant user interface an
 - **Glowing Button Effects** - Cyan-colored button with glowing neon effects
 - **Real-time Messaging** - Chat interface with message input and send functionality
 - **Online Status Indicator** - Visual indicator showing assistant availability
+- **AI-Powered Responses** - Integration with Anthropic's Claude API for intelligent responses
+- **Auto-Scrolling Chat** - Messages scroll smoothly as conversation grows
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- PHP 7.4+ with cURL support
+- XAMPP or similar local server environment
 - A modern web browser (Chrome, Firefox, Safari, Edge)
+- Anthropic API key
 - A video file named `bg.mp4` for the background animation
 
 ### Installation
@@ -30,13 +35,21 @@ A sleek and modern AI assistant chat interface with an elegant user interface an
    cd AlyaAiAssitant
    ```
 
-2. **Add your background video:**
+2. **Place in your web server directory:**
+   - Copy the project to `htdocs` (for XAMPP) or your server's web root
+
+3. **Add your Anthropic API key:**
+   - Open `index.php`
+   - Replace the placeholder API key with your actual Anthropic API key
+   - Keep it secure—consider using environment variables for production
+
+4. **Add your background video:**
    - Place your `bg.mp4` video file in the project root directory
    - The video will automatically loop and cover the entire background
 
-3. **Open the application:**
-   - Simply open `index.html` in your web browser
-   - No server or build tools required!
+5. **Start your local server:**
+   - If using XAMPP, start Apache
+   - Navigate to `http://localhost/AlyaAiAssitant/`
 
 ---
 
@@ -44,7 +57,8 @@ A sleek and modern AI assistant chat interface with an elegant user interface an
 
 ```
 AlyaAiAssitant/
-├── index.html          # Main HTML file with embedded CSS and JavaScript
+├── index.php           # Main file with UI and chat handling
+├── chat.php            # Deprecated (functionality moved to index.php)
 ├── bg.mp4              # Background video (add your own)
 ├── alya.ico            # Assistant icon/logo (optional)
 └── README.md           # This file
@@ -55,7 +69,7 @@ AlyaAiAssitant/
 ## 🎨 Customization
 
 ### Change Colors
-Edit the CSS variables in `index.html`:
+Edit the CSS variables in `index.php`:
 - **Button Color:** Modify `background-color: #00ffff;` in `.myBtn` class
 - **Box Transparency:** Adjust `rgba(0, 0, 0, 0.5)` in `.transparentbox` class
 - **Glow Effects:** Change `box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;` values
@@ -73,14 +87,29 @@ Edit the CSS variables in `index.html`:
 - Replace `alya.ico` with your own icon file
 - Adjust the size with the `width` attribute
 
+### Adjust AI Model
+- In `index.php`, modify the `model` parameter in the `chat()` function
+- Default is `claude-opus-4-7` for best results
+
 ---
 
 ## 🖥️ Technologies Used
 
+- **PHP** - Backend server-side processing
 - **HTML5** - Semantic markup and video element
 - **CSS3** - Modern styling with flexbox and animations
 - **JavaScript** - Interactive functionality
-- **Video Background** - Native HTML5 video API
+- **Anthropic Claude API** - AI-powered chat responses
+- **cURL** - HTTP requests to API
+
+---
+
+## 🔑 API Configuration
+
+The application uses the Anthropic API for AI responses. Make sure to:
+1. Obtain your API key from [Anthropic's website](https://console.anthropic.com/)
+2. Add your API key to the `chat()` function in `index.php`
+3. Ensure your account has sufficient credits/access to the Claude models
 
 ---
 
@@ -90,14 +119,40 @@ Edit the CSS variables in `index.html`:
 - **Flexbox Container** - Centered, responsive design
 - **Transparent Box** - Semi-transparent overlay with rounded corners
 - **Full-Screen Video** - Background video that covers the entire viewport
+- **Auto-scrolling Content** - Messages area scrolls when content exceeds viewport
 
 ### Interactive Elements
 - **Input Field** - Smooth, styled text input with rounded borders
 - **Send Button** - Cyan button with glowing neon effect and hover animation
 - **Status Indicator** - Shows real-time online status
 
-### Visual Effects
-- **Neon Glow** - Cyan button with box-shadow glow effect
+### Backend Processing
+- **Message Handling** - PHP processes user input and sends to Anthropic API
+- **API Integration** - Secure communication with Claude AI
+- **Response Display** - Formatted output of both user and AI messages
+- **Error Handling** - Graceful handling of missing POST parameters
+
+---
+
+## 🐛 Troubleshooting
+
+**Undefined array key warning:**
+- This is fixed in the current version with null coalescing operators (`??`)
+
+**Textbox disappearing:**
+- Fixed with `overflow-y: auto` CSS to enable scrolling
+
+**No response from AI:**
+- Check your Anthropic API key is valid
+- Ensure PHP cURL is enabled
+- Verify internet connection
+- Check browser console for errors
+
+---
+
+## ✅ Project Status
+
+**COMPLETE** - All features implemented and tested. Ready for use!
 - **Hover States** - Button changes to white on hover
 - **Video Background** - Parallax-like fixed positioning
 - **Semi-transparent Overlay** - Creates depth and improves readability
