@@ -1,4 +1,4 @@
-# 🤖 ALYA - AI Assistant
+# 🤖 ALYA - AI Assistant [UNDER CONSTRUCTION]
 
 A sleek and modern AI assistant chat interface with an elegant user interface and smooth animations. ALYA provides an immersive experience with a beautiful glass-morphism design and animated video background.
 
