@@ -23,7 +23,7 @@ $action = "1";
             
             <div style="text-align: center;">
                 <img src="alya.ico" width="10%">
-                <p>Status: <i>Online</i></p>
+                <p>Status: <i style="color: lightgreen;">Online</i></p>
             </div>
             <br><br>
             <?php 
@@ -147,5 +147,8 @@ if ($action == "0") {
         <button class="myBtn" type="submit">SEND</button>
     </form>
 </nav>
+        <footer class="page-footer">
+            <p>Built with Love and Caffeine by <strong>Sam</strong></p>
+        </footer>
     </body>
 </html>
